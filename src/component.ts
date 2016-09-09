@@ -41,6 +41,26 @@ module AFRAMEGLTF {
       }
     });
   }
+  
+  function playAnimations(){
+    if (gltf.animations && gltf.animations.length) {
+      let len = (gltf.animations) ? gltf.animations.length : 0;
+      while (len--) {
+        let animation = gltf.animations[len];
+        animation.loop = loop;
+        animation.play();
+      }
+    }
+  }
+  function stopAnimations(){
+    if (gltf.animations && gltf.animations.length) {
+      let len = (gltf.animations) ? gltf.animations.length : 0;
+      while (len--) {
+        let animation = gltf.animations[len];
+        animation.stop();
+      }
+    }
+  }
 
   function remove() {
     if (!this.model) { return; }
@@ -59,6 +79,8 @@ module AFRAMEGLTF {
       },
       init: init,
       update: update,
+      playAnimations: playAnimations,
+      stopAnimations: stopAnimations,
       remove:remove 
     };
   }
