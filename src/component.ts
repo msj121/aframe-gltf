@@ -31,11 +31,14 @@ module AFRAMEGLTF {
 
       if (gltf.animations && gltf.animations.length) {
         let len = (gltf.animations) ? gltf.animations.length : 0;
+        self.data.availableAnimations = ["__all__"];
         while (len--) {
           let animation = gltf.animations[len];
+          self.data.availableAnimations.push(animation.name);
           animation.loop = loop;
-          if (auto) {
-            animation.play();
+          if(self.data.duration && self.data.duration.length>0} animation.duration = self.data.duration;
+          if ((self.data.animation=="__all__" || self.data.animation == animation.name) && auto) {
+              animation.play();
           }
         }
       }
@@ -55,7 +58,9 @@ module AFRAMEGLTF {
       schema: {
         src: {type: 'src'},
         loop: {default: true},
-        auto: {default: true}
+        auto: {default: true},
+        duration: {default: ""},
+        animation: {default: '__all__'}
       },
       init: init,
       update: update,
