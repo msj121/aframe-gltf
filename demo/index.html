@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>aframe-gltf</title>
+    <meta name="description" content="aframe-gltf">
+    <script src="https://rawgit.com/aframevr/aframe/9d74d3e789b9293395d628a6d0866d11938bfc4e/dist/aframe.min.js"></script>
+    <script src="aframe-gltf.js"></script>
+  </head>
+  <body>
+    <!--[if lt IE 11]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <a-scene id="scene">
+      <a-assets>
+        <a-asset-item id="model" src="VC.gltf"></a-asset-item>
+      </a-assets>
+      <a-entity position="0 0.1 4.3">
+        <a-camera></a-camera>
+      </a-entity>
+      <a-sphere position="0 0.25 -1" radius="1.25" color="#230808"></a-sphere>
+      <a-box position="-1 0.5 1" rotation="0 45 0" width="1" height="1" depth="1"  color="#420309"></a-box>
+      <a-cylinder position="1 0.75 1" radius="0.5" height="1.5" color="#5A1223"></a-cylinder>
+      <a-plane position="0 0.1 0" rotation="-90 0 0" width="4" height="4" color="#090101"></a-plane>
+      <a-entity id="gltf" gltf-model="asset: #model; loop: true; auto: true;">
+    </a-scene>
+  </body>
+</html>
