@@ -9,7 +9,7 @@
       uglify = require('gulp-uglify'),
       connect = require('gulp-connect'),
       scripts = [
-        './bower_components/three.js/examples/js/loaders/GLTFLoader.js',
+        './node_modules/three/examples/js/loaders/GLTFLoader.js',
         './build/src.js'
       ];
 
@@ -25,7 +25,7 @@
   }
 
   function clean() {
-    return del.sync(['build', 'dist']); 
+    return del.sync(['build', 'dist']);
   }
 
   function main() {
