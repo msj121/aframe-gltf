@@ -11,10 +11,16 @@ module AFRAMEGLTF {
       let self = this,
           el = this.el,
           asset = this.data.asset,
+	  src = this.data.src,
           loop = this.data.loop,
           auto = this.data.auto;
 
-      if (!asset) { return; }
+      if (!asset) { 
+	if(!src)
+	  return;
+	console.log("src is deprecated, please use asset");
+	asset = src;
+      }
 
       this.remove();
 
@@ -54,6 +60,7 @@ module AFRAMEGLTF {
     return {
       schema: {
         asset: {type: 'asset'},
+	src: {type:'asset'},
         loop: {default: true},
         auto: {default: true}
       },
